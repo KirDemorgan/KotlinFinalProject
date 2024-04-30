@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/mainBackgroundDark"
-    tools:context=".MainActivity">
+    tools:context=".AuthActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,10 +18,10 @@
         android:layout_marginTop="170dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:text="@string/regLabel" />
+        android:text="@string/authLabel" />
 
     <EditText
-        android:id="@+id/user_login"
+        android:id="@+id/user_login_auth"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -33,21 +33,9 @@
         android:textColorHint="@color/loginHintsTextDark"
         />
 
-    <EditText
-        android:id="@+id/user_email"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Введите ваш email"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:textColor="@color/loginPageTextDark"
-        android:textColorHint="@color/loginHintsTextDark"
-        />
 
     <EditText
-        android:id="@+id/user_passwd"
+        android:id="@+id/user_passwd_auth"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -60,27 +48,27 @@
         />
 
     <Button
-        android:id="@+id/button_reg"
+        android:id="@+id/button_auth"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textStyle="bold"
         android:textColor="@color/loginButtonTextDark"
         android:backgroundTint="@color/loginButton"
-        android:text="Создать аккаунт"
+        android:text="Авторизоваться"
         android:layout_marginTop="30dp"/>
 
+
     <TextView
-        android:id="@+id/linkToAuth"
+        android:id="@+id/linkToReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="120dp"
         android:fontFamily="@font/inter_bold"
-        android:text="@string/authLabel"
+        android:text="@string/authRedirect"
         android:textColor="@color/loginPageTextDark"
         android:textSize="15sp"
         android:textStyle="bold" />
-
 
 </LinearLayout>

@@ -1,8 +1,10 @@
 package com.example.appwithregistration
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -15,7 +17,12 @@ class MainActivity : AppCompatActivity() {
         val userEmail: EditText = findViewById(R.id.user_email)
         val userPassword: EditText = findViewById(R.id.user_passwd)
         val registrationButton: Button = findViewById(R.id.button_reg)
+        val linkToAuth: TextView = findViewById(R.id.linkToAuth)
 
+        linkToAuth.setOnClickListener {
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+        }
 
         registrationButton.setOnClickListener {
             val login = userLogin.text.toString().trim()
@@ -35,6 +42,9 @@ class MainActivity : AppCompatActivity() {
                 userLogin.text.clear()
                 userEmail.text.clear()
                 userPassword.text.clear()
+
+                val intent = Intent(this, AuthActivity::class.java)
+                startActivity(intent)
         }
     }
     }

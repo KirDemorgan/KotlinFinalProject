@@ -1,5 +1,6 @@
 package com.example.appwithregistration
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -8,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBhelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, "app", factory, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
-        val query = "CREATE TABLE users (id INT PRIMARY KEY, login TEXT, email TEXT, password TEXT)"
+        val query = "CREATE TABLE users (id INT PRIMARY KEY, login TEXT, email TEXT, pass TEXT)"
         db!!.execSQL(query)
     }
 
@@ -29,4 +30,11 @@ class DBhelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         db.close()
     }
 
+    @SuppressLint("Recycle")
+    fun getUser(login: String, password: String): Boolean{
+        val db = this.readableDatabase
+
+        val result = db.rawQuery("SELECT * FROM users WHERE login = '$login' AND pass = '$password'", null)
+        return result.moveToFirst()
+    }
 }
