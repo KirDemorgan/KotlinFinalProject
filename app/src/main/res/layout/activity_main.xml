@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mainBackgroundDark"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/loginPageTextDark"
+        android:layout_gravity="center"
+        android:layout_marginTop="170dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/regLabel" />
+
+    <EditText
+        android:id="@+id/user_login"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Введите ваш логин"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:textColor="@color/loginPageTextDark"
+        android:textColorHint="@color/loginHintsTextDark"
+        />
+
+    <EditText
+        android:id="@+id/user_email"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Введите ваш email"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:textColor="@color/loginPageTextDark"
+        android:textColorHint="@color/loginHintsTextDark"
+        />
+
+    <EditText
+        android:id="@+id/user_passwd"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Введите ваш пароль"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/loginPageTextDark"
+        android:textColorHint="@color/loginHintsTextDark"
+        />
+
+    <Button
+        android:id="@+id/button_reg"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/loginButtonTextDark"
+        android:backgroundTint="@color/loginButton"
+        android:text="Создать аккаунт"
+        android:layout_marginTop="30dp"/>
+
+
+</LinearLayout>
