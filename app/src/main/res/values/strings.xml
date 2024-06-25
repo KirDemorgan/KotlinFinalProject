@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Demorgan Prog</string>
+    <string name="app_name">CryptoNote</string>
     <string name="regLabel">Создайте новый аккаунт</string>
     <string name="authLabel">Войдите в ваш аккаунт</string>
     <string name="authRedirect">Создать аккаунт</string>
