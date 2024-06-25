@@ -6,10 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,15 +34,12 @@ class AuthActivity : AppCompatActivity() {
                 val isAuthExist = db.getUser(login, password)
 
                 if (isAuthExist) {
-                    Toast.makeText(
-                        this,
-                        "Пользователь $login успешно авторизован",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(this, "Пользователь $login успешно авторизован", Toast.LENGTH_LONG).show()
                     userLogin.text.clear()
                     userPassword.text.clear()
 
-                    val intent = Intent(this, ItemsActivity::class.java)
+                    val intent = Intent(this, CryptoListActivity::class.java)
+                    intent.putExtra("user_login", login)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Пользователь $login не найден", Toast.LENGTH_LONG).show()

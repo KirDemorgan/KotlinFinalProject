@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mainBackgroundDark"
+    tools:context=".CryptoListActivity">
+
+    <EditText
+        android:id="@+id/crypto_amount"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:hint="Сумма"
+        android:inputType="numberDecimal"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/loginPageTextDark"
+        android:textColorHint="@color/loginHintsTextDark"
+        />
+
+    <EditText
+        android:id="@+id/crypto_type"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:hint="Тип"
+        android:inputType="text"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/loginPageTextDark"
+        android:textColorHint="@color/loginHintsTextDark"
+        />
+
+    <Button
+        android:id="@+id/add_crypto_button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/loginButtonTextDark"
+        android:backgroundTint="@color/loginButton"
+        android:text="Добавить криптовалюту"
+        android:layout_marginTop="30dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/crypto_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="10dp" />
+
+</LinearLayout>
