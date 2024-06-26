@@ -86,6 +86,32 @@ class DBhelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         cursor.close()
         db.close()
     }
+    fun deleteCryptoFromUser(login: String, crypto: CryptoCurrency) {
+        val db = this.writableDatabase
+        val cursor = db.rawQuery("SELECT $COLUMN_CRYPTOS FROM $TABLE_USERS WHERE $COLUMN_LOGIN = ?", arrayOf(login))
+        if (cursor.moveToFirst()) {
+            val cryptosJson = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CRYPTOS))
+            val cryptosArray = JSONArray(cryptosJson)
+            var indexToDelete = -1
+            for (i in 0 until cryptosArray.length()) {
+                val cryptoObject = cryptosArray.getJSONObject(i)
+                val amount = cryptoObject.getDouble("amount")
+                val type = cryptoObject.getString("type")
+                if (amount == crypto.amount && type == crypto.type) {
+                    indexToDelete = i
+                    break
+                }
+            }
+            if (indexToDelete != -1) {
+                cryptosArray.remove(indexToDelete)
+                val values = ContentValues()
+                values.put(COLUMN_CRYPTOS, cryptosArray.toString())
+                db.update(TABLE_USERS, values, "$COLUMN_LOGIN = ?", arrayOf(login))
+            }
+        }
+        cursor.close()
+        db.close()
+    }
 
     companion object {
         private const val DATABASE_VERSION = 1

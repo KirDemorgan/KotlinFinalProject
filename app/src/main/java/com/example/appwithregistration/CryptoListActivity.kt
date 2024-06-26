@@ -20,7 +20,7 @@ class CryptoListActivity : AppCompatActivity() {
         val db = DBhelper(this, null)
         val cryptoList = db.getUserCryptos(login)
 
-        cryptoAdapter = CryptoAdapter(cryptoList)
+        cryptoAdapter = CryptoAdapter(login, cryptoList)
 
         val recyclerView: RecyclerView = findViewById(R.id.crypto_list)
         recyclerView.layoutManager = LinearLayoutManager(this)

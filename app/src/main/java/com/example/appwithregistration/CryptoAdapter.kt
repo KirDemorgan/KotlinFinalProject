@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CryptoAdapter(private val cryptoList: MutableList<CryptoCurrency>) : RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
+class CryptoAdapter(private val login: String, private val cryptoList: MutableList<CryptoCurrency>) : RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
 
     class CryptoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val amount: TextView = view.findViewById(R.id.crypto_amount)
@@ -22,6 +22,13 @@ class CryptoAdapter(private val cryptoList: MutableList<CryptoCurrency>) : Recyc
         val crypto = cryptoList[position]
         holder.amount.text = crypto.amount.toString()
         holder.type.text = crypto.type
+
+        holder.itemView.setOnClickListener {
+            val db = DBhelper(holder.itemView.context, null)
+            db.deleteCryptoFromUser(login, cryptoList[position])
+            cryptoList.removeAt(position)
+            notifyItemRemoved(position)
+        }
     }
 
     override fun getItemCount(): Int {
